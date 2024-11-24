@@ -42,7 +42,7 @@ function ExploreCources() {
             }}
           >
             <span> </span>
-            Cources
+            Courses
           </span>
         </h1>
       </div>
