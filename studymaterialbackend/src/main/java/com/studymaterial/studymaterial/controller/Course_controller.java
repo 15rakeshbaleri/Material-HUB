@@ -2,7 +2,9 @@ package com.studymaterial.studymaterial.controller;
 import com.studymaterial.studymaterial.model.Course_model;
 import com.studymaterial.studymaterial.service.Course_service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +17,16 @@ public class Course_controller {
     Course_service c_service;
 
 
-    @GetMapping("/all")
-    public RequestEntity<List<Course_model>> get_allcourses(){
+    @GetMapping
+    public ResponseEntity<List<Course_model>> get_allcourses(){
 
-
+       List<Course_model> cources= c_service.all_cources();
+       if(!cources.isEmpty()){
+           return  new ResponseEntity<>(cources, HttpStatus.OK);
+       }
+       else {
+           return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
+       }
     }
 
 

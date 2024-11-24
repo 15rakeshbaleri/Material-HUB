@@ -13,8 +13,6 @@ import java.util.List;
 @Document(collection = "courses")
 public class Course_model {
 
-
-    @Id
     @NonNull
     @Indexed(unique = true)
     private String code;
