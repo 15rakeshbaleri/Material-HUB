@@ -1,0 +1,16 @@
+/* Footer.module.css */
+.footerLine {
+  border-bottom: 2px solid gold; /* Creates a golden line */
+  margin: 20px 0; /* Adds some space above and below the line */
+}
+
+.footerText {
+  color: gold; /* Makes text golden */
+}
+
+li {
+  margin: 10px;
+}
+i {
+  color: gold;
+}

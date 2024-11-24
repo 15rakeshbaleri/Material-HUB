@@ -1,0 +1,47 @@
+.outtercotainer {
+  background-color: black;
+  margin-bottom: 50px;
+}
+.innerContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  margin-top: 80px;
+  justify-content: center;
+}
+.singlecard {
+  padding: 30px;
+  background-color: rgb(0, 0, 0);
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-out;
+  backdrop-filter: blur(10px);
+  color: rgba(204, 177, 0, 1);
+}
+.singlecard:hover {
+  background-color: rgba(204, 177, 0, 1);
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6), 0 6px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px) scale(1.05);
+  cursor: pointer;
+  filter: brightness(1.1);
+  color: #000;
+}
+
+.cardimg {
+  border-radius: 5px;
+  width: 225px;
+
+  height: 200px;
+}
+img {
+  border-radius: 5px;
+  margin: 20px;
+}
