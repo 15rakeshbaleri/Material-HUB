@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/course")
 public class Course_controller {
@@ -19,9 +20,9 @@ public class Course_controller {
     @GetMapping
     public ResponseEntity<List<Course_model>> get_allcourses(){
 
-       List<Course_model> cources= c_service.all_courses();
-       if(!cources.isEmpty()){
-           return  new ResponseEntity<>(cources, HttpStatus.OK);
+       List<Course_model> courses= c_service.all_courses();
+       if(!courses.isEmpty()){
+           return  new ResponseEntity<>(courses, HttpStatus.OK);
        }
        else {
            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -70,6 +71,18 @@ public class Course_controller {
     public ResponseEntity<Course_model> get_courseby_id(@PathVariable String cid){
 
         Course_model course =c_service.getby_courseid(cid);
+        if(course!=null){
+            return new ResponseEntity<>(course,HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/semester/{sem}")
+    public ResponseEntity<List<Course_model>> get_courseby_sem(@PathVariable int sem){
+
+        List<Course_model> course =c_service.getby_semester(sem);
         if(course!=null){
             return new ResponseEntity<>(course,HttpStatus.OK);
 

@@ -1,0 +1,17 @@
+.courseContainer {
+  display: flex; /* Arrange items in a row */
+  flex-wrap: wrap; /* Wrap to the next line if items don't fit */
+  gap: 20px; /* Space between items */
+  justify-content: center; /* Center items horizontally */
+  padding: 20px; /* Add padding around the container */
+  background-color: #000000; /* Light background for better contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .courseContainer {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items */
+  }
+}

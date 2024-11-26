@@ -62,4 +62,8 @@ public class Course_service {
       }
 
     }
+
+    public List<Course_model> getby_semester(int sem) {
+       return c_repo.findBysemester(sem);
+    }
 }

@@ -5,6 +5,7 @@ import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class Course_model {
     private List<String> branches;
     @NonNull
     private int credits;
+    @NonNull
+    private int semester;
     private List<String> ppt;
     private List<String> textbook;
     private List<String> modelpapers;
