@@ -5,6 +5,7 @@ import Coursecard from "../components/Coursecard";
 import Footer from "../components/Footer";
 import ExploreCourses from "../assets/ExploreCources";
 import Style from "./Course.module.css";
+import Semester from "../components/Semester";
 function Course() {
   const [courses, setCourses] = useState([]);
 
@@ -23,6 +24,9 @@ function Course() {
     <>
       <Navbar />
       <ExploreCourses />
+      <div className={`${Style.dropdown}`}>
+        <Semester />
+      </div>
 
       <div className={Style.courseContainer}>
         {courses.length > 0 ? (
@@ -32,6 +36,10 @@ function Course() {
               coursename={course.title}
               sem={course.semester}
               credit={course.credits}
+              ppt={course.ppt}
+              textbook={course.textbook}
+              modelpapers={course.modelpapers}
+              labPrograms={course.labPrograms}
             />
           ))
         ) : (

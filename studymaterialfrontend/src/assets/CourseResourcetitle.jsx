@@ -1,6 +1,6 @@
 import React from "react";
 
-function CourseResourcetitle(coursename) {
+function CourseResourcetitle({ name }) {
   return (
     <div>
       <>
@@ -33,7 +33,7 @@ function CourseResourcetitle(coursename) {
                 color: "transparent",
               }}
             >
-              {coursename}
+              {name}
             </span>
             <span
               style={{

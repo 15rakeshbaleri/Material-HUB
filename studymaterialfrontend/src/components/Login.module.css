@@ -1,27 +1,41 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
+.formin {
+  display: flex;
+  flex-direction: column; /* Stacks form elements in a column */
+  align-items: center; /* Centers form elements horizontally */
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px; /* Adjust the width as necessary */
+}
+
 .input {
   background-color: black;
   color: #ffd700;
   margin: 10px;
   padding: 10px;
-  width: 250px;
+  width: 100%; /* Full width for input fields */
   border-radius: 10px;
   border: 1px solid #ffd700;
   display: flex;
   justify-content: center;
 }
 
-label {
-  color: #4c4a4a;
-}
 button {
   background-color: #ffd700;
   margin: 5px;
-  width: 150px;
-  height: 30px;
+  width: 100%; /* Makes the button the same width as the input fields */
+  height: 40px;
   border-radius: 8px;
   color: #000;
+
+  cursor: pointer;
+}
+
+img {
+  margin-bottom: 20px;
 }

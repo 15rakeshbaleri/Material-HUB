@@ -1,9 +1,26 @@
 import React from "react";
 import Style from "./Coursecard.module.css";
-import CourseResource from "./CourseResource";
-function Coursecard({ coursename, sem, credit }) {
+import CourseResource from "../pages/CourseResource";
+function Coursecard({
+  coursename,
+  sem,
+  credit,
+  ppt,
+  textbook,
+  modelpapers,
+  labPrograms,
+}) {
   const handleCardClick = () => {
-    <CourseResource />;
+    <CourseResource
+      key={code}
+      coursename={title}
+      sem={semester}
+      credit={credit}
+      ppt={ppt}
+      textbook={textbook}
+      modelpapers={modelpapers}
+      labPrograms={labPrograms}
+    />;
 
     console.log(`${coursename} card clicked`);
   };
@@ -19,7 +36,6 @@ function Coursecard({ coursename, sem, credit }) {
           <br />
           <div className="d-flex justify-content-evenly align-items-center">
             <small className={`${Style.textMuted}`}>Semester: {sem}</small>
-
             <small className={`${Style.textMuted}`}>Credits: {credit}</small>
           </div>
         </div>

@@ -1,0 +1,91 @@
+.semesterDropdown {
+  position: relative;
+  max-width: 200px;
+  margin: 0px 40px 40px 40px;
+  width: 100%;
+  text-align: left;
+}
+
+.semesterButton {
+  background-color: black;
+  border: 1px solid #daa520;
+  color: #daa520;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Arial", sans-serif; /* Cleaner font */
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px; /* Slight rounding of corners */
+  text-align: left; /* Align text to the left */
+}
+
+.semesterButton:hover {
+  background-color: #daa520; /* Gold background on hover */
+  color: black; /* Dark text on hover for better contrast */
+  border-color: black; /* Dark border on hover */
+}
+
+.semesterDropdownMenu {
+  position: absolute;
+  background-color: black; /* Dark grey background for dropdown */
+  text-align: center;
+  top: 100%;
+  left: 0; /* Align the dropdown to the left */
+  margin-top: 5px;
+  z-index: 1000;
+  border-radius: 4px; /* Slight rounding of corners */
+  box-shadow: 0 4px 8px black; /* Soft shadow for depth */
+  display: flex; /* Use flexbox to make items horizontal */
+  justify-content: space-around;
+  padding: 10px; /* Distribute items evenly */
+  list-style: none; /* Remove bullet points (dots) */
+}
+
+.semesterDropdownItem {
+  background-color: black; /* Dark grey background for items */
+  color: #daa520; /* Gold text for items */
+  /* Increased padding for better spacing */
+  cursor: pointer;
+
+  border: 1px solid #daa520;
+  font-size: 14px; /* Slightly smaller font size for items */
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px; /* Rounding for items */
+  text-align: center;
+  /* Center text horizontally within each item */
+}
+
+.semesterDropdownItem:hover {
+  background-color: #daa520; /* Gold background on hover */
+  color: black; /* Dark text on hover */
+}
+
+.semesterDropdownItem:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(218, 165, 32, 0.6); /* Gold glow effect */
+}
+
+.text-muted {
+  color: #daa520;
+}
+
+@media (max-width: 768px) {
+  .semesterDropdown {
+    margin: 20px;
+    max-width: 100%;
+  }
+
+  .semesterButton {
+    width: 100%;
+  }
+
+  .semesterDropdownMenu {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .semesterDropdownItem {
+    width: 100%; /* Make items full width on small screens */
+    text-align: center;
+  }
+}
