@@ -22,7 +22,6 @@ function Login() {
               placeholder="admin login"
               required
             />
-            {/* <label htmlFor="floatingInput">Email address</label> */}
           </div>
           <div>
             <input
@@ -32,7 +31,6 @@ function Login() {
               placeholder="Password"
               required
             />
-            {/* <label htmlFor="floatingPassword">Password</label> */}
           </div>
 
           <button type="submit">Sign in</button>

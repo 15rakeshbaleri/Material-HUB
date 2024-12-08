@@ -11,6 +11,7 @@
   border-radius: 10px;
   border: 1px solid #ffd700;
   display: flex;
+  justify-content: center;
 }
 
 label {
