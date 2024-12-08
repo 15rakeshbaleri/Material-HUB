@@ -6,6 +6,7 @@ import Course from "./pages/Course";
 import Style from "./App.module.css";
 import Adminlogin from "./pages/Adminlogin";
 import Add_course from "./pages/Add_course";
+import CourseResource from "./components/CourseResource";
 function App() {
   return (
     <div>
@@ -13,6 +14,7 @@ function App() {
       <Course />
       <Adminlogin />
       <Add_course />
+      <CourseResource />
     </div>
   );
 }

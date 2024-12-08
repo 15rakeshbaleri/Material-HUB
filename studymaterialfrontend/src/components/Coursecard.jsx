@@ -1,8 +1,10 @@
 import React from "react";
 import Style from "./Coursecard.module.css";
-
+import CourseResource from "./CourseResource";
 function Coursecard({ coursename, sem, credit }) {
   const handleCardClick = () => {
+    <CourseResource />;
+
     console.log(`${coursename} card clicked`);
   };
 

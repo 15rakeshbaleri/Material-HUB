@@ -31,6 +31,17 @@ function Add_course() {
       return;
     }
 
+    const pptArray = ppt ? ppt.split(",").map((item) => item.trim()) : [];
+    const textbookArray = textbook
+      ? textbook.split(",").map((item) => item.trim())
+      : [];
+    const modelpapersArray = modelpapers
+      ? modelpapers.split(",").map((item) => item.trim())
+      : [];
+    const labProgramsArray = labPrograms
+      ? labPrograms.split(",").map((item) => item.trim())
+      : [];
+
     try {
       const response = await axios.post("http://localhost:8080/course", {
         code,
@@ -38,10 +49,10 @@ function Add_course() {
         branches,
         credits,
         semester,
-        ppt,
-        textbook,
-        modelpapers,
-        labPrograms,
+        ppt: pptArray,
+        textbook: textbookArray,
+        modelpapers: modelpapersArray,
+        labPrograms: labProgramsArray,
       });
 
       if (response.status === 200) {
