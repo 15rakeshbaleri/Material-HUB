@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../resources/materialhublogo.png";
 
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
@@ -18,15 +19,25 @@ function Navbar() {
             <div className="col-lg-6 d-flex justify-content-end align-items-center">
               <ul className="nav">
                 <li className="nav-item">
-                  <a className="nav-link text-warning" href="/courses">
+                  <Link className="nav-link text-warning" to="/Home">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-warning" to="/all-course">
                     All Courses
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link text-warning" href="">
+                  <Link className="nav-link text-warning" to="/all-course">
                     Contact Us
-                  </a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-warning" to="/login">
+                    Login
+                  </Link>
                 </li>
               </ul>
             </div>

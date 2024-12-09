@@ -7,15 +7,16 @@ import Style from "./App.module.css";
 import Adminlogin from "./pages/Adminlogin";
 import Add_course from "./pages/Add_course";
 import CourseResource from "./pages/CourseResource";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <div>
-      <Home />
-      <Course />
-      <Adminlogin />
-      <Add_course />
-      <CourseResource />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/Home" element={<Home />} />
+        <Route path="/all-course" element={<Course />} />
+        <Route path="/login" element={<Adminlogin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

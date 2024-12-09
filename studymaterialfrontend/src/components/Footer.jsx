@@ -9,7 +9,7 @@ function Footer() {
             className={`nav justify-content-center border-bottom pb-3 mb-3 ${Style.footerLine}`}
           >
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-secondary">
+              <a href="/Home" className="nav-link px-2 text-body-secondary">
                 <i class="bi bi-house-door-fill"></i>
               </a>
             </li>
