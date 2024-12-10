@@ -1,17 +1,62 @@
 .courseContainer {
-  display: flex; /* Arrange items in a row */
-  flex-wrap: wrap; /* Wrap to the next line if items don't fit */
-  gap: 20px; /* Space between items */
-  justify-content: center; /* Center items horizontally */
-  padding: 20px; /* Add padding around the container */
-  background-color: #000000; /* Light background for better contrast */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
   .courseContainer {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items */
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.semesterFilter {
+  margin: 10px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.semesterButton {
+  background-color: black;
+  border: 1px solid #daa520;
+  color: #d9ab35;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+  text-align: center;
+  width: 100px; /* Prevent buttons from shrinking too small */
+}
+
+.semesterButton:hover {
+  background-color: #daa520;
+  color: black;
+  border-color: black;
+}
+
+.semesterButton:focus {
+  outline: none;
+  box-shadow: 0 0 0.51px 2px #daa520;
+}
+
+@media (max-width: 768px) {
+  .buttonContainer {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: center;
   }
 }

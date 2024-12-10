@@ -6,30 +6,155 @@ import Coursecard from "../components/Coursecard";
 import Footer from "../components/Footer";
 import Style from "./Course.module.css";
 import ExploreCources from "../assets/ExploreCources";
+
 function Course() {
   const { dept } = useParams();
   const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([]); // For filtered courses
+  const [selectedSemester, setSelectedSemester] = useState(""); // Track selected semester
 
+  // Fetch courses on component mount
   useEffect(() => {
     axios
       .get(`http://localhost:8080/course/${dept}`)
       .then((response) => {
         setCourses(response.data);
+        setFilteredCourses(response.data); // Initially show all courses
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
       });
   }, [dept]);
 
+  // Handle semester selection
+  const handleSemesterSelect = (semester) => {
+    setSelectedSemester(semester);
+
+    if (semester === "" || semester === "All") {
+      // Show all courses if "All" or no semester is selected
+      setFilteredCourses(courses);
+    } else {
+      const filtered = courses.filter(
+        (course) => course.semester === parseInt(semester, 10)
+      );
+      setFilteredCourses(filtered);
+    }
+  };
+
   return (
     <>
       <Navbar />
       <ExploreCources />
+
+      <div className={Style.semesterFilter}>
+        <div className={Style.buttonContainer}>
+          <button
+            onClick={() => handleSemesterSelect("")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === ""
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            All
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("P")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "P"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            P Cycle
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("C")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "C"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            C Cycle
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("3")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "3"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 3
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("4")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "4"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 4
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("5")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "5"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 5
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("6")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "6"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 6
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("7")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "7"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 7
+          </button>
+          <button
+            onClick={() => handleSemesterSelect("8")}
+            className={Style.semesterButton}
+            style={
+              selectedSemester === "8"
+                ? { backgroundColor: "#daa520", color: "black" }
+                : {}
+            }
+          >
+            Semester 8
+          </button>
+        </div>
+      </div>
+
       <div className={Style.courseContainer}>
-        {courses.length > 0 ? (
-          courses.map((course) => (
+        {filteredCourses.length > 0 ? (
+          filteredCourses.map((course) => (
             <Coursecard
-              // Ensure each course has a unique key
+              key={course.code} // Ensure each course has a unique key
               code={course.code}
               coursename={course.title}
               sem={course.semester}
@@ -37,7 +162,10 @@ function Course() {
             />
           ))
         ) : (
-          <p>No courses available for {dept}</p>
+          <p>
+            No courses available for{" "}
+            {selectedSemester || "the selected semester"}
+          </p>
         )}
       </div>
       <Footer />

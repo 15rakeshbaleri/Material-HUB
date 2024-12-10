@@ -71,9 +71,7 @@ function CourseResource() {
           <p>Loading...</p>
         )}
 
-        <button onClick={() => navigate(`/course/${course?.branches[0]}`)}>
-          Go to Branch
-        </button>
+        <button onClick={() => navigate(`/course/all`)}>Go to Branch</button>
       </div>
       <Footer />
     </>
