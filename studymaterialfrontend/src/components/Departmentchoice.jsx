@@ -1,7 +1,16 @@
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Style from "./Department.module.css";
 import ise from "../resources/ise.png";
 import cse from "../resources/cse.png";
+
 function Departmentchoice() {
+  const navigate = useNavigate();
+
+  const handleCardClick = (dept) => {
+    navigate(`/course/${dept}`);
+  };
+
   return (
     <>
       <div className={Style.outtercotainer} bis_skin_checked="1">
@@ -9,7 +18,7 @@ function Departmentchoice() {
           <button
             className={Style.singlecard}
             bis_skin_checked="1"
-            onClick={() => handleCardClick("Information Science")}
+            onClick={() => handleCardClick("ise")}
           >
             <div className={Style.cardimg}>
               <img src={ise} alt="Information Science" width={220} />
@@ -20,7 +29,7 @@ function Departmentchoice() {
           <button
             className={Style.singlecard}
             bis_skin_checked="1"
-            onClick={() => handleCardClick("Computer Science")}
+            onClick={() => handleCardClick("cse")}
           >
             <div className={Style.cardimg}>
               <img src={cse} alt="Computer Science" width={220} />
@@ -32,4 +41,5 @@ function Departmentchoice() {
     </>
   );
 }
+
 export default Departmentchoice;

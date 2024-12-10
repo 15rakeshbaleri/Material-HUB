@@ -10,17 +10,17 @@ function Footer() {
           >
             <li className="nav-item">
               <a href="/Home" className="nav-link px-2 text-body-secondary">
-                <i class="bi bi-house-door-fill"></i>
+                <i className="bi bi-house-door-fill"></i>
               </a>
             </li>
             <li className="nav-item">
               <a href="#" className="nav-link px-2 text-body-secondary">
-                <i class="bi bi-instagram"></i>
+                <i className="bi bi-instagram"></i>
               </a>
             </li>
             <li className="nav-item">
               <a href="#" className="nav-link px-2 text-body-secondary">
-                <i class="bi bi-person-fill"></i>
+                <i className="bi bi-person-fill"></i>
               </a>
             </li>
             <li className="nav-item">
@@ -29,12 +29,12 @@ function Footer() {
                 target="_blank"
                 className="nav-link px-2 text-body-secondary"
               >
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </a>
             </li>
             <li className="nav-item">
               <a href="#" className="nav-link px-2 text-body-secondary">
-                <i class="bi bi-share-fill"></i>
+                <i className="bi bi-share-fill"></i>
               </a>
             </li>
           </ul>

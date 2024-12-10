@@ -19,12 +19,12 @@ function Navbar() {
             <div className="col-lg-6 d-flex justify-content-end align-items-center">
               <ul className="nav">
                 <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/Home">
+                  <Link className="nav-link text-warning" to="/">
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/all-course">
+                  <Link className="nav-link text-warning" to="/course/all">
                     All Courses
                   </Link>
                 </li>
