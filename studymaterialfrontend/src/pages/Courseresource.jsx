@@ -7,12 +7,12 @@ import Style from "./CourseResource.module.css";
 import CourseResourcetitle from "../assets/CourseResourcetitle";
 
 function CourseResource() {
-  const { id } = useParams(); // Extract course ID from the URL
+  const { id } = useParams();
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/course/id/${id}`) // Fetch course by ID
+      .get(`http://localhost:8080/course/id/${id}`)
       .then((response) => setCourse(response.data))
       .catch((error) => console.error("Error fetching course:", error));
   }, [id]);

@@ -17,7 +17,7 @@ public class Course_controller {
     Course_service c_service;
 
 
-    @GetMapping
+    @GetMapping("all")
     public ResponseEntity<List<Course_model>> get_allcourses(){
 
        List<Course_model> courses= c_service.all_courses();
