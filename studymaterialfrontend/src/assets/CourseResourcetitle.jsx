@@ -42,7 +42,7 @@ function CourseResourcetitle({ name }) {
                 color: "transparent",
               }}
             >
-              RESOURSE
+              RESOURCE
             </span>
           </h1>
         </div>

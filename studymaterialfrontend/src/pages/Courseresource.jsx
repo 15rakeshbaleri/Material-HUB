@@ -22,6 +22,7 @@ function CourseResource() {
   return (
     <>
       <Navbar />
+      <h1 className={Style.title}>{course.title}</h1>
       <CourseResourcetitle />
       <div className={Style.container}>
         {course ? (
@@ -30,7 +31,6 @@ function CourseResource() {
             <p className={Style.details}>Semester: {course.semester}</p>
             <p className={Style.details}>Credits: {course.credits}</p>
             <div className={Style.resources}>
-              <h3>Resources</h3>
               <div className={Style.buttonGroup}>
                 {course.ppt && (
                   <button
@@ -71,7 +71,12 @@ function CourseResource() {
           <p>Loading...</p>
         )}
 
-        <button onClick={() => navigate(`/course/all`)}>Go to Branch</button>
+        <button
+          className={Style.bacButton}
+          onClick={() => navigate(`/course/all`)}
+        >
+          Go to Branch
+        </button>
       </div>
       <Footer />
     </>

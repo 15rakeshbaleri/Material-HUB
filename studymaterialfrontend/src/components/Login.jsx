@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../resources/materialhublogo.png";
 import Style from "./Login.module.css";
-
+import Addcourse from "../assets/Addcourse";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,42 +27,44 @@ function Login() {
   };
 
   return (
-    <div className={`${Style.container}`}>
-      <form className={`${Style.formin}`} onSubmit={handleSubmit}>
-        {" "}
-        {/* Attach handleSubmit here */}
-        <img
-          className="mb-4"
-          src={logo}
-          alt="Material Hub Logo"
-          width="100"
-          height="60"
-        />
-        <div>
-          <input
-            type="email"
-            className={`${Style.input}`}
-            placeholder="admin login"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+    <>
+      <Addcourse />
+      <div className={`${Style.container}`}>
+        <form className={`${Style.formin}`} onSubmit={handleSubmit}>
+          {" "}
+          <img
+            className={`${Style.logo}`}
+            src={logo}
+            alt="Material Hub Logo"
+            width="100"
+            height="60"
           />
-        </div>
-        <div>
-          <input
-            type="password"
-            className={`${Style.input}`}
-            id="floatingPassword"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}{" "}
-        <button type="submit">Sign in</button>
-      </form>
-    </div>
+          <div>
+            <input
+              type="email"
+              className={`${Style.input}`}
+              placeholder="admin login"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className={`${Style.input}`}
+              id="floatingPassword"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}{" "}
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </>
   );
 }
 

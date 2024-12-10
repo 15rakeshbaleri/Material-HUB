@@ -30,8 +30,8 @@ function Navbar() {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/all-course">
-                    Contact Us
+                  <Link className="nav-link text-warning" to="/about">
+                    About Us
                   </Link>
                 </li>
                 <li className="nav-item">

@@ -1,6 +1,7 @@
 import Style from "./Footer.module.css";
-
+import { useNavigate } from "react-router-dom";
 function Footer() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="container">
@@ -9,7 +10,12 @@ function Footer() {
             className={`nav justify-content-center border-bottom pb-3 mb-3 ${Style.footerLine}`}
           >
             <li className="nav-item">
-              <a href="/Home" className="nav-link px-2 text-body-secondary">
+              <a
+                className="nav-link px-2 text-body-secondary"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 <i className="bi bi-house-door-fill"></i>
               </a>
             </li>

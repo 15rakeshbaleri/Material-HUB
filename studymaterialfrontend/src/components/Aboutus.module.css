@@ -1,0 +1,99 @@
+.section {
+  background: #000000;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+.materialhub {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.about,
+.us {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0.3rem;
+  font-family: "Arial", sans-serif;
+  letter-spacing: 2px;
+  animation: upDown 2s infinite; /* Apply up-down animation */
+}
+
+.about {
+  color: white;
+}
+
+.us {
+  color: #ffd700;
+}
+
+/* Up-Down animation */
+@keyframes upDown {
+  0%,
+  100% {
+    transform: translateY(0); /* Initial position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10px */
+  }
+}
+
+.heading {
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+}
+.gold {
+  color: #ffd700;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff; /* Changed to white for better contrast */
+}
+
+.profileimage {
+  max-width: 100%;
+  border-radius: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btnPrimary {
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+.btnPrimary:hover {
+  background-color: #000;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+}
+
+.btnOutline {
+  background-color: black;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnOutline:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+.profileImage {
+  margin-left: 150px;
+  margin-right: 150px;
+  width: 200px;
+}
