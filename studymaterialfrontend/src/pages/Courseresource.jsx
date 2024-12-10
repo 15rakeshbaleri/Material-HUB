@@ -5,10 +5,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Style from "./CourseResource.module.css";
 import CourseResourcetitle from "../assets/CourseResourcetitle";
+import { useNavigate } from "react-router-dom";
 
 function CourseResource() {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -68,6 +70,10 @@ function CourseResource() {
         ) : (
           <p>Loading...</p>
         )}
+
+        <button onClick={() => navigate(`/course/${course?.branches[0]}`)}>
+          Go to Branch
+        </button>
       </div>
       <Footer />
     </>

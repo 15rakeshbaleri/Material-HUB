@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Style from "./Add_course.module.css";
 import Addcourse from "../assets/Addcourse";
-import axios from "axios"; // Assuming axios is required for API calls
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Add_course() {
   const [code, setcode] = useState("");
   const [title, settitle] = useState("");
@@ -13,7 +13,7 @@ function Add_course() {
   const [textbook, settextbook] = useState("");
   const [modelpapers, setmodelpapers] = useState("");
   const [labPrograms, setlabPrograms] = useState("");
-
+  const navigate = useNavigate();
   const handleBranchChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -56,7 +56,7 @@ function Add_course() {
       });
 
       if (response.status === 200) {
-        console.log("Response Data:", JSON.stringify(response.data, null, 2));
+        alert("course added sucessfully");
       }
     } catch (error) {
       console.error(
@@ -202,6 +202,7 @@ function Add_course() {
             <button type="submit">Add Course</button>
           </form>
         </div>
+        <button onClick={() => navigate("/login")}>Back </button>
       </div>
     </>
   );

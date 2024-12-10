@@ -19,8 +19,6 @@ public class User_service {
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public boolean adminLogin(User_model user) {
-        System.out.println("Username: " + user.getUsername());
-        System.out.println("Password: " + user.getPassword());
 
         User_model existingAdmin = userRepo.findByUsername(user.getUsername());
 
@@ -33,8 +31,7 @@ public class User_service {
 
     public boolean adminsignup(User_model user) {
         User_model existingAdmin = userRepo.findByUsername(user.getUsername());
-        System.out.println("Username: " + user.getUsername());
-        System.out.println("Password: " + user.getPassword());
+
 
         if (existingAdmin != null) {
             return false;

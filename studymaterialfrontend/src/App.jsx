@@ -7,6 +7,7 @@ import Style from "./App.module.css";
 import Adminlogin from "./pages/Adminlogin";
 import Add_course from "./pages/Add_course";
 import CourseResource from "./pages/CourseResource";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/course/:dept" element={<Course />} />
         <Route path="/login" element={<Adminlogin />} />
+        <Route path="/add-course" element={<Add_course />} />
         <Route path="/course/id/:id" element={<CourseResource />} />
       </Routes>
     </BrowserRouter>

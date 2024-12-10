@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios"; // Make sure axios is imported
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import logo from "../resources/materialhublogo.png";
 import Style from "./Login.module.css";
 
@@ -7,7 +8,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,7 +19,7 @@ function Login() {
       });
 
       if (response.status === 200) {
-        console.log("Login successful!");
+        navigate(`/add-course`);
       }
     } catch (error) {
       setErrorMessage("Invalid username or password");
@@ -59,7 +60,6 @@ function Login() {
           />
         </div>
         {errorMessage && <div className="error-message">{errorMessage}</div>}{" "}
-        {/* Show error message */}
         <button type="submit">Sign in</button>
       </form>
     </div>
