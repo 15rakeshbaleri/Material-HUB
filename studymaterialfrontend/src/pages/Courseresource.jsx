@@ -22,12 +22,16 @@ function CourseResource() {
   return (
     <>
       <Navbar />
-      <h1 className={Style.title}>{course.title}</h1>
+      <h1 className={Style.title}>{course ? course.title : "Loading..."}</h1>
+
       <CourseResourcetitle />
       <div className={Style.container}>
         {course ? (
           <>
-            <h1 className={Style.title}>{course.title}</h1>
+            <h1 className={Style.title}>
+              {course ? course.title : "Loading..."}
+            </h1>
+
             <p className={Style.details}>Semester: {course.semester}</p>
             <p className={Style.details}>Credits: {course.credits}</p>
             <div className={Style.resources}>
