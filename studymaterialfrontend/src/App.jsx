@@ -9,16 +9,18 @@ import Add_course from "./pages/Add_course";
 import CourseResource from "./pages/CourseResource";
 import Aboutus from "./components/Aboutus";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Admin from "./pages/Admin";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/course/:dept" element={<Course />} />
-        <Route path="/login" element={<Adminlogin />} />
+        <Route path="/login/:user" element={<Adminlogin />} />
         <Route path="/about" element={<Aboutus />} />
-        <Route path="/add-course" element={<Add_course />} />
         <Route path="/course/id/:id" element={<CourseResource />} />
+
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

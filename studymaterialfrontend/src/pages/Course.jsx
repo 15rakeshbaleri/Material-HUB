@@ -16,10 +16,11 @@ function Course() {
   // Fetch courses on component mount
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/course/${dept}`)
+      .get(`http://localhost:8080/api/courses/branch/${dept}`)
       .then((response) => {
-        setCourses(response.data);
-        setFilteredCourses(response.data); // Initially show all courses
+        console.log(response.data.data);
+        setCourses(response.data.data);
+        setFilteredCourses(response.data.data); // Initially show all courses
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
@@ -31,11 +32,10 @@ function Course() {
     setSelectedSemester(semester);
 
     if (semester === "" || semester === "All") {
-      // Show all courses if "All" or no semester is selected
       setFilteredCourses(courses);
     } else {
       const filtered = courses.filter(
-        (course) => course.semester === parseInt(semester, 10)
+        (course) => course.semester.toLowerCase() === semester.toLowerCase()
       );
       setFilteredCourses(filtered);
     }
@@ -152,15 +152,19 @@ function Course() {
 
       <div className={Style.courseContainer}>
         {filteredCourses.length > 0 ? (
-          filteredCourses.map((course) => (
-            <Coursecard
-              key={course.code} // Ensure each course has a unique key
-              code={course.code}
-              coursename={course.title}
-              sem={course.semester}
-              credit={course.credits}
-            />
-          ))
+          filteredCourses.map((course) => {
+            console.log(course.id);
+            return (
+              <Coursecard
+                key={course.id}
+                id={course.id}
+                code={course.code}
+                coursename={course.title}
+                sem={course.semester}
+                credit={course.credits}
+              />
+            );
+          })
         ) : (
           <p>
             No courses available for{" "}

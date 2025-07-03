@@ -8,6 +8,11 @@ function Home() {
       <Navbar />
       <Materialhub />
       <Departmentchoice />
+<<<<<<< HEAD
+=======
+      {/* <Uploadppt /> */}
+
+>>>>>>> 0f4aefb (Admin panel update (secrets removed))
       <Footer />
     </>
   );

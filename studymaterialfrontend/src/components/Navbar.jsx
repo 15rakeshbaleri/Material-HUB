@@ -1,8 +1,18 @@
 import React from "react";
 import logo from "../resources/materialhublogo.png";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/");
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -28,17 +38,48 @@ function Navbar() {
                     All Courses
                   </Link>
                 </li>
-
                 <li className="nav-item">
                   <Link className="nav-link text-warning" to="/about">
                     About Us
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/login">
-                    Login
-                  </Link>
-                </li>
+
+                {!token ? (
+                  <>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-warning"
+                        to="/login/student"
+                      >
+                        Login
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link text-warning" to="/login/admin">
+                        Admin Login
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    {role === "admin" && (
+                      <li className="nav-item">
+                        <Link className="nav-link text-warning" to="/admin">
+                          Admin Panel
+                        </Link>
+                      </li>
+                    )}
+                    <li className="nav-item">
+                      <span
+                        className="nav-link text-warning"
+                        role="button"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </span>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

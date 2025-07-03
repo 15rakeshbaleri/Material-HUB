@@ -42,7 +42,7 @@ h3 {
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
-  atransition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .resourceButton:hover {
@@ -53,5 +53,6 @@ h3 {
 .resourceButton:disabled {
   background-color: #ccc;
   color: #888;
+
   cursor: not-allowed;
 }

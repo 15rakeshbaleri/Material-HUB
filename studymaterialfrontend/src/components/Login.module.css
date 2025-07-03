@@ -3,9 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: #000000; /* Optional background color */
 }
 .logo {
+  margin: 0px 0; /* Space around the logo */
   height: 80px;
   width: 200px;
 }
@@ -18,7 +20,7 @@
   border-radius: 10px;
   border: 1px solid #ffffff; /* Golden border */
   width: 400px;
-  height: 400px; /* Fixed height for the form */
+  height: 500px; /* Fixed height for the form */
   background-color: #000000; /* Optional background color for the form */
   padding: 20px; /* Adds padding inside the form */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
@@ -55,4 +57,10 @@ img {
   margin-bottom: 20px; /* Space below the image */
   max-width: 100%; /* Ensures image doesn't overflow */
   border-radius: 10px; /* Optional rounded corners for the image */
+}
+.formbuttondiv {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
