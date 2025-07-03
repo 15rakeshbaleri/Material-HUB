@@ -1,43 +1,63 @@
 package com.studymaterial.studymaterial.controller;
 
-import com.studymaterial.studymaterial.model.User_model;
+import com.studymaterial.studymaterial.model.Role;
+import com.studymaterial.studymaterial.model.User;
+import com.studymaterial.studymaterial.repository.User_repo;
+import com.studymaterial.studymaterial.request.StudentRegister;
+import com.studymaterial.studymaterial.response.BaseResponse;
 import com.studymaterial.studymaterial.service.User_service;
+import com.studymaterial.studymaterial.serviceimpl.User_serviceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.List;
+
 @RestController
-@RequestMapping("/user")
-@CrossOrigin
+@RequestMapping("/api/users")
+@CrossOrigin("*")
 public class User_controller {
 
     @Autowired
-    User_service userservice;
+    private User_serviceimpl userService;
 
-    @PostMapping("/login")
-    public ResponseEntity<String> adminLogin(@RequestBody User_model user) {
-        boolean loginSuccess = userservice.adminLogin(user);
+    @Autowired
+    private User_repo userRepository;
 
-        if (loginSuccess) {
-            return new ResponseEntity<>("Admin login successful", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Invalid username or password", HttpStatus.UNAUTHORIZED);
-        }
+    @Autowired
+    private   PasswordEncoder passwordEncoder;
+
+
+    @PostMapping
+    public BaseResponse createUser(@RequestBody User user) {
+        User savedUser = userService.createUser(user);
+        return new BaseResponse("SUCCESS", "USER_CREATED", "User created successfully", new Date(), savedUser);
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<String> adminSignup(@RequestBody User_model user) {
+    @GetMapping
+    public BaseResponse getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return new BaseResponse("SUCCESS", "USERS_FETCHED", "Fetched all users", new Date(), users);
+    }
 
+    @GetMapping("/{id}")
+    public BaseResponse getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return new BaseResponse("SUCCESS", "USER_FOUND", "User found", new Date(), user);
+    }
 
-        boolean signupSuccess = userservice.adminsignup(user);
+    @PutMapping("/{id}")
+    public BaseResponse updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        User user = userService.updateUser(id, updatedUser);
+        return new BaseResponse("SUCCESS", "USER_UPDATED", "User updated successfully", new Date(), user);
+    }
 
-        if (signupSuccess) {
-            return new ResponseEntity<>("Admin signup successful", HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Username already exists", HttpStatus.BAD_REQUEST);
-        }
+    @DeleteMapping("/{id}")
+    public BaseResponse deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return new BaseResponse("SUCCESS", "USER_DELETED", "User deleted successfully", new Date(), null);
     }
 
 
