@@ -1,0 +1,11 @@
+package com.studymaterial.studymaterial.response;
+
+import lombok.Data;
+
+@Data
+public class MaterialResponse {
+    private Long id;
+    private String title;
+    private String url;
+    private String type;
+}

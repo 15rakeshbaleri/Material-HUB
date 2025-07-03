@@ -1,0 +1,83 @@
+package com.studymaterial.studymaterial.serviceimpl;
+
+import com.studymaterial.studymaterial.model.Course;
+import com.studymaterial.studymaterial.repository.Course_repo;
+import com.studymaterial.studymaterial.service.Course_service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
+
+@Service
+@Slf4j
+public class Course_serviceimpl implements Course_service {
+
+
+
+    private final Course_repo courseRepository;
+
+    @Autowired
+    public Course_serviceimpl(Course_repo courseRepository) {
+        this.courseRepository = courseRepository;
+    }
+
+    @Override
+    public Course createCourse(Course course) {
+        log.info("Creating a new course: " + course.getTitle()+
+                " with code: " + course.getCode()  +
+                " uploaded by: " + course.getUploadedBy());
+        return courseRepository.save(course);
+    }
+
+    @Override
+    public Course getCourseById(Long id) {
+        Optional<Course> optionalCourse = courseRepository.findById(String.valueOf(id));
+        return optionalCourse.orElse(null);  // Or throw custom exception
+    }
+
+    @Override
+    public List<Course> getAllCourses() {
+        return courseRepository.findAll();
+    }
+
+    @Override
+    public List<Course> getCoursesByBranch(String branch) {
+        return courseRepository.findByBranchesContaining(branch);
+    }
+
+    @Override
+    public List<Course> getCoursesBySemester(String semester) {
+        log.info("Fetching courses for semester: " + semester);
+
+        return courseRepository.findBySemester(semester);
+    }
+
+    @Override
+    public Course updateCourse(Long id, Course updatedCourse) {
+        log.info("Updating course with ID: " + id );
+        log.info("New title: " + updatedCourse.getTitle() +
+                ", New semester: " + updatedCourse.getSemester() +
+                ", New credits: " + updatedCourse.getCredits() +
+                ", New branches: " + updatedCourse.getBranches() +
+                ", Uploaded by: " + updatedCourse.getUploadedBy());
+        return courseRepository.findById(String.valueOf(id))
+                .map(course -> {
+                    course.setTitle(updatedCourse.getTitle());
+                    course.setSemester(updatedCourse.getSemester());
+                    course.setCredits(updatedCourse.getCredits());
+                    course.setBranches(updatedCourse.getBranches());
+                    course.setUploadedBy(updatedCourse.getUploadedBy());
+                    course.setMaterials(updatedCourse.getMaterials());
+                    return courseRepository.save(course);
+                })
+                .orElse(null); // Or throw custom exception
+    }
+
+    @Override
+    public void deleteCourse(Long id) {
+        courseRepository.deleteById(String.valueOf(id));
+    }
+}
