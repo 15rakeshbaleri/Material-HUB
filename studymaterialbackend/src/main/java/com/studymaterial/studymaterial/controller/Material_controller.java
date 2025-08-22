@@ -66,7 +66,6 @@ public class Material_controller {
         return ResponseEntity.ok(response);
     }
 
-    // ✅ Get material by ID
     @GetMapping("/{id}")
     public ResponseEntity<Material> getMaterialById(@PathVariable Long id) {
         Material material = materialService.getMaterialById(id);

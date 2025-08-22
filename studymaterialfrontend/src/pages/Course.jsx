@@ -18,7 +18,6 @@ function Course() {
     axios
       .get(`http://localhost:8080/api/courses/branch/${dept}`)
       .then((response) => {
-        console.log(response.data.data);
         setCourses(response.data.data);
         setFilteredCourses(response.data.data); // Initially show all courses
       })

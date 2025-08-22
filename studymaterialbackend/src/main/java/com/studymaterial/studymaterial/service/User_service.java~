@@ -1,4 +1,0 @@
-package com.studymaterial.studymaterial.service;
-
-public interface User_service {
-}

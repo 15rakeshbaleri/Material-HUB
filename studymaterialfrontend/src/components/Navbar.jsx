@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../resources/materialhublogo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -8,84 +8,112 @@ function Navbar() {
   const role = localStorage.getItem("role");
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
+    localStorage.clear();
+    alert("Logged out successfully ");
     navigate("/");
   };
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg">
-        <div className="container">
-          <div className="row w-100">
-            <div className="col-lg-6 d-flex align-items-center">
-              <img src={logo} alt="Material Hub Logo" height={70} />
-              <p className="mb-0 text-light">
-                <i className="bi bi-envelope-at-fill"></i>
-                <span> materialhub@gmail.com</span>
-              </p>
-            </div>
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{ backgroundColor: "#000" }}
+    >
+      <div className="container">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <img
+            src={logo}
+            alt="Material Hub Logo"
+            height={50}
+            className="me-2"
+          />
+          <span className="d-none d-md-inline text-light small">
+            <i className="bi bi-envelope-at-fill me-1"></i>
+            materialhub@gmail.com
+          </span>
+        </Link>
 
-            <div className="col-lg-6 d-flex justify-content-end align-items-center">
-              <ul className="nav">
-                <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/course/all">
-                    All Courses
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/about">
-                    About Us
-                  </Link>
-                </li>
+        {/* Toggler for mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-                {!token ? (
-                  <>
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link text-warning"
-                        to="/login/student"
-                      >
-                        Login
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link text-warning" to="/login/admin">
-                        Admin Login
-                      </Link>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    {role === "admin" && (
-                      <li className="nav-item">
-                        <Link className="nav-link text-warning" to="/admin">
-                          Admin Panel
-                        </Link>
-                      </li>
-                    )}
-                    <li className="nav-item">
-                      <span
-                        className="nav-link text-warning"
-                        role="button"
-                        onClick={handleLogout}
-                      >
-                        Logout
-                      </span>
-                    </li>
-                  </>
+        {/* Nav links */}
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link text-warning" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link text-warning" to="/">
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link text-warning" to="/course/all">
+                All Courses
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link text-warning" to="/about">
+                About Us
+              </NavLink>
+            </li>
+
+            {!token ? (
+              <>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link text-warning"
+                    to="/login/student"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link text-warning" to="/login/admin">
+                    Admin Login
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                {role === "admin" && (
+                  <li className="nav-item">
+                    <NavLink className="nav-link text-warning" to="/admin">
+                      Admin Panel
+                    </NavLink>
+                  </li>
                 )}
-              </ul>
-            </div>
-          </div>
+                <li className="nav-item">
+                  <NavLink className="nav-link text-warning" to="/profile">
+                    Profile
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <span
+                    className="nav-link text-warning"
+                    role="button"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </span>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

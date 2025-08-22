@@ -56,12 +56,23 @@ public class Course_controller {
             return ResponseEntity.ok(response);
         }
         List<Course> courses = courseService.getCoursesByBranch(branch);
+        List<CourseResponse> coursesResponse = courses.stream()
+                .map(course -> new CourseResponse(
+                        course.getId(),
+                        course.getCode(),
+                        course.getTitle(),
+                        course.getSemester(),
+                        course.getCredits(),
+                        course.getBranches()))
+                .toList();
+
+
         BaseResponse response = new BaseResponse(
                 "success",
                 "info",
                 "Courses fetched successfully for branch: " + branch,
                 new Date(),
-                courses
+                coursesResponse
         );
         return ResponseEntity.ok(response);
     }

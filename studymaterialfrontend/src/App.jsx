@@ -7,7 +7,9 @@ import Style from "./App.module.css";
 import Adminlogin from "./pages/Adminlogin";
 import Add_course from "./pages/Add_course";
 import CourseResource from "./pages/CourseResource";
+import AdminPanel from "./pages/AdminPanel";
 import Aboutus from "./components/Aboutus";
+import Profile from "./pages/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/course/id/:id" element={<CourseResource />} />
 
         <Route path="/admin" element={<Admin />} />
+        <Route path="/adminpanel" element={<AdminPanel />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

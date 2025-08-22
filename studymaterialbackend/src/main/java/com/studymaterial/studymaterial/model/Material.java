@@ -18,7 +18,7 @@ public class Material {
 
     private String type; // "PPT", "PDF", "TEXTBOOK", "ZIP", "MODEL_PAPER", "LAB_PROGRAM"
     private String fileName; // Optional: can be used for file storage or display
-    private Long fileSize; // Optional: can be used for file size display
+        private Long fileSize; // Optional: can be used for file size display
     private String title; // Optional: can be file name or label
 
     private String url; // Can be Google Drive, S3, or direct link

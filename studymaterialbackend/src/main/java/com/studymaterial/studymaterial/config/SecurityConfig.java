@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/courses/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/profile/**").permitAll()
                         .requestMatchers("/materials/download/**").authenticated()
                         .anyRequest().authenticated()
                 )
@@ -57,6 +58,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config)

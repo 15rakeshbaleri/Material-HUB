@@ -79,7 +79,8 @@ function CourseResource() {
                         className={Style.downloadButton}
                         onClick={handleDownloadClick(zip.id, zip.title)}
                       >
-                        {zip.title}
+                        {zip.title}{" "}
+                        {(zip.fileSize / (1024 * 1024)).toFixed(2) + " MB"}
                       </button>
                     ))
                 ) : (
